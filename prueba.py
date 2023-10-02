@@ -4,7 +4,7 @@ from caja import Caja
 from packing import Packing
 from excepcion import *
 
-def mostrarListado(listado):
+def mostrarListado(listado:list):
     for i in listado:
         print(i)
 

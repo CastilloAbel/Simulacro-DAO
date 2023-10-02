@@ -3,7 +3,7 @@ from excepcion import *
 class Camion:
 
 
-    def __init__(self, patente, carga_maxima) -> None:
+    def __init__(self, patente:str, carga_maxima:float) -> None:
         self._patente = patente
         self._estado = "Disponible"
         self._carga_maxima = carga_maxima
@@ -11,7 +11,7 @@ class Camion:
     
 
     def __str__(self) -> str:
-        return f"Patente: {self.patente}, Estado: {self.estado}, Carga Maxima: {self.carga_maxima}, Cantidad de Cargas: {self.cantidad_cargas()}, Peso del camion: {self.peso_cargas()}"
+        return f"Patente: {self.patente}, Estado: {self.estado}, Carga Maxima: {self.carga_maxima}, Cantidad de Cargas: {self.cantidad_cargas()}, Peso de las cargas: {self.peso_cargas()}Kg"
 
 
     @property
@@ -35,7 +35,7 @@ class Camion:
 
 
     @estado.setter
-    def estado(self, estado):
+    def estado(self, estado:str):
         self._estado = estado
 
 
@@ -44,7 +44,7 @@ class Camion:
 
 
     def subir_cargas(self, carga:Carga):
-        if self.peso_cargas() + carga.calcularPeso() >= self.carga_maxima:
+        if self.peso_cargas() + carga.calcularPeso() > self.carga_maxima:
             raise PesoExcedido()
         elif self.estado == "Disponible":
             self.cargas[carga.contenido] = carga
