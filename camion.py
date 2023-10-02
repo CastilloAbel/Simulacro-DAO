@@ -1,4 +1,5 @@
 from carga import Carga
+from excepcion import *
 class Camion:
 
 
@@ -44,18 +45,18 @@ class Camion:
 
     def subir_cargas(self, carga:Carga):
         if self.peso_cargas() + carga.calcularPeso() >= self.carga_maxima:
-            raise Exception({"message": "Ha excedido el peso maximo"})
+            raise PesoExcedido()
         elif self.estado == "Disponible":
             self.cargas[carga.contenido] = carga
         else:
-            raise Exception({"message": "El camion no se encuentra Disponible"})
+            print("Camion no disponible")
 
 
     def bajar_cargas(self, carga:Carga):
         if self.cantidad_cargas() > 0 and self.estado == "Disponible":
             self.cargas.pop(carga.contenido)
         else:
-            raise Exception({"message": "No hay cargas disponibles"})
+            raise SinCargas()
         
 
     def peso_cargas(self)->float:

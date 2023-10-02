@@ -2,7 +2,7 @@ from camion import Camion
 from bidon import Bidon
 from caja import Caja
 from packing import Packing
-
+from excepcion import *
 
 def mostrarListado(listado):
     for i in listado:
@@ -32,37 +32,37 @@ def main():
     print("Subiendo Cargas...")
     try:
         c.subir_cargas(c1)
-    except Exception:
+    except PesoExcedido:
         print("Ha excedido el Limite")
     else:
         print("Carga Correcta")
     try:
         c.subir_cargas(c2)
-    except Exception:
+    except PesoExcedido:
         print("Ha excedido el Limite")
     else:
         print("Carga Correcta")
     try:
         c.subir_cargas(c3)
-    except Exception:
+    except PesoExcedido:
         print("Ha excedido el Limite")
     else:
         print("Carga Correcta")
     try:
         c.subir_cargas(c4)
-    except Exception:
+    except PesoExcedido:
         print("Ha excedido el Limite")
     else:
         print("Carga Correcta")
     try:
         camion2.subir_cargas(b1)
-    except Exception:
+    except PesoExcedido:
         print("Ha excedido el Limite")
     else:
         print("Carga Correcta")
     try:
         c.subir_cargas(b2)
-    except Exception:
+    except PesoExcedido:
         print("Ha excedido el Limite")
     else:
         print("Carga Correcta")
@@ -74,22 +74,27 @@ def main():
 
     try:
         camion2.subir_cargas(b3)
-    except Exception:
+    except PesoExcedido:
         print("Ha excedido el Limite")
     else:
         print("Carga Correcta")
     try:
         camion2.subir_cargas(t1)
-    except Exception:
+    except PesoExcedido:
         print("Ha excedido el Limite")
     else:
         print("Carga Correcta")
     try:
         camion2.subir_cargas(t2)
-    except Exception:
+    except PesoExcedido:
         print("Ha excedido el Limite")
     else:
         print("Carga Correcta")
+
+    print("----------------")
+    c.sale_reparado()
+    print(c)
+    print("----------------")
 
     print("----------------")
     c.en_viaje()
@@ -98,31 +103,31 @@ def main():
 
     try:
         camion2.subir_cargas(t3)
-    except Exception:
+    except PesoExcedido:
         print("Ha excedido el Limite")
     else:
         print("Carga Correcta")
     try:
         camion2.subir_cargas(t4)
-    except Exception:
+    except PesoExcedido:
         print("Ha excedido el Limite")
     else:
         print("Carga Correcta")
     try:
         camion2.subir_cargas(t5)
-    except Exception:
+    except PesoExcedido:
         print("Ha excedido el Limite")
     else:
         print("Carga Correcta")
     try:
         c.subir_cargas(c4)
-    except Exception:
+    except PesoExcedido:
         print("Ha excedido el Limite")
     else:
         print("Carga Correcta")
     try:
         camion2.bajar_cargas(t5)
-    except Exception:
+    except SinCargas:
         print("No se encontro la carga")
     else:
         print("Descargada...")
