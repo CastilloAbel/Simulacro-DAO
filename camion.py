@@ -79,7 +79,7 @@ class Camion:
 
 
     def listo_para_salir(self)->bool:
-        return self.peso_cargas() / self.carga_maxima >= 0.75
+        return self.peso_cargas() / self.carga_maxima >= 0.75 and self.estado == "Disponible"
 
 
     def cargas_en_orden(self)->list:
